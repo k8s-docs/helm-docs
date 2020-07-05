@@ -1,50 +1,108 @@
-{{ $title := site.Title }}
-{{ $year  := now.Year }}
+{{ $title := site.Title }} {{ $year := now.Year }}
 <section class="container footer-links">
   <div class="columns clearfix">
     <dl class="column">
-      <dt><a href="https://github.com/helm/helm">Helm Project</a></dt>
-      <dd><a href="/blog">Blog</a></dd>
-      <dd><a href="https://www.cncf.io/community/kubecon-cloudnativecon-events/">Events</a></dd>
-      <dd><a href="/docs/intro/quickstart/">Quick Start Guide</a></dd>
-      <dd><a href="https://github.com/cncf/foundation/blob/master/code-of-conduct.md">Code of Conduct</a></dd>
+      <dt><a href="https://github.com/helm/helm">Helm 项目</a></dt>
+      <dd><a href="/blog">博客</a></dd>
+      <dd>
+        <a href="https://www.cncf.io/community/kubecon-cloudnativecon-events/"
+          >活动</a
+        >
+      </dd>
+      <dd><a href="/docs/intro/quickstart/">快速入门指南</a></dd>
+      <dd>
+        <a
+          href="https://github.com/cncf/foundation/blob/master/code-of-conduct.md"
+          >行为守则</a
+        >
+      </dd>
     </dl>
 
     <dl class="column">
-      <dt><a href="https://hub.helm.sh">Charts</a></dt>
-      <dd><a href="/docs/topics/charts/">Introduction</a></dd>
-      <dd><a href="/docs/howto/charts_tips_and_tricks/">Chart tips &amp; tricks</a></dd>
-      <dd><a href="/docs/chart_template_guide/">Developing Charts</a></dd>
-      <dd><a href="https://hub.helm.sh">Search 800+ Charts</a> <i class="fa fa-external"></i></dd>
+      <dt><a href="https://hub.helm.sh">图表</a></dt>
+      <dd><a href="/docs/topics/charts/">介绍</a></dd>
+      <dd>
+        <a href="/docs/howto/charts_tips_and_tricks/">图技巧 &amp; 技巧</a>
+      </dd>
+      <dd><a href="/docs/chart_template_guide/">开发图表</a></dd>
+      <dd>
+        <a href="https://hub.helm.sh">搜索800+图表</a>
+        <i class="fa fa-external"></i>
+      </dd>
     </dl>
 
     <dl class="column">
-      <dt><a href="https://github.com/helm/community/blob/master/communication.md">Development</a></dt>
-      <dd><a href="https://kubernetes.slack.com/messages/C51E88VDG">#helm-dev</a> <em>(slack)</em></dd>
-      <dd><a href="https://github.com/helm/helm/blob/master/CONTRIBUTING.md">Contribution Guide</a></dd>
-      <dd><a href="https://github.com/helm/helm/blob/master/OWNERS">Maintainers</a></dd>
-      <dd><a href="https://github.com/helm/community/blob/master/communication.md#meetings">Weekly Meetings</a></dd>
+      <dt>
+        <a href="https://github.com/helm/community/blob/master/communication.md"
+          >开发</a
+        >
+      </dt>
+      <dd>
+        <a href="https://kubernetes.slack.com/messages/C51E88VDG">#helm-dev</a>
+        <em>(slack)</em>
+      </dd>
+      <dd>
+        <a href="https://github.com/helm/helm/blob/master/CONTRIBUTING.md"
+          >贡献指南</a
+        >
+      </dd>
+      <dd>
+        <a href="https://github.com/helm/helm/blob/master/OWNERS">维护者</a>
+      </dd>
+      <dd>
+        <a
+          href="https://github.com/helm/community/blob/master/communication.md#meetings"
+          >每周例会</a
+        >
+      </dd>
     </dl>
 
     <dl class="column">
-      <dt><a href="https://github.com/helm/community">Community</a></dt>
-      <dd><a href="https://kubernetes.slack.com/messages/C0NH30761" title="#helm-users on Slack">#helm-users</a> <em>(slack)</em></dd>
-      <dd><a href="https://lists.cncf.io/g/cncf-helm/topics">Mailing List</a></dd>
-      <dd><a href="https://github.com/cncf/artwork/tree/master/projects/helm">Logos</a> &amp; <a href="https://github.com/helm/community/tree/master/art">Art</a></dd>
-      <dd><a href="https://twitter.com/helmpack">Twitter</a></dd>
+      <dt><a href="https://github.com/helm/community">社区</a></dt>
+      <dd>
+        <a
+          href="https://kubernetes.slack.com/messages/C0NH30761"
+          title="#helm-users on Slack"
+          >#helm-users</a
+        >
+        <em>(slack)</em>
+      </dd>
+      <dd>
+        <a href="https://lists.cncf.io/g/cncf-helm/topics">邮件列表</a>
+      </dd>
+      <dd>
+        <a href="https://github.com/cncf/artwork/tree/master/projects/helm"
+          >徽标</a
+        >
+        &amp;
+        <a href="https://github.com/helm/community/tree/master/art">艺术</a>
+      </dd>
+      <dd><a href="https://twitter.com/helmpack">推特</a></dd>
     </dl>
   </div>
 
   <div class="columns has-text-left cncf-wrap">
     <div class="column is-two-thirds">
-      <a href="https://www.cncf.io/" title="Cloud Native Computing Foundation" target="_blank">
+      <a
+        href="https://www.cncf.io/"
+        title="Cloud Native Computing Foundation"
+        target="_blank"
+      >
         <p class="lead">{{ T "footer_cncf_status" }}</p>
       </a>
     </div>
 
     <div class="column is-one-third has-text-right">
-      <a href="https://www.cncf.io/" title="Cloud Native Computing Foundation" target="_blank">
-        <img src="/img/cncf-white.svg" alt="We are a Cloud Native Computing Foundation project" class="">
+      <a
+        href="https://www.cncf.io/"
+        title="Cloud Native Computing Foundation"
+        target="_blank"
+      >
+        <img
+          src="/img/cncf-white.svg"
+          alt="We are a Cloud Native Computing Foundation project"
+          class=""
+        />
       </a>
     </div>
   </div>
@@ -53,11 +111,18 @@
 
   <div class="copyright">
     <p>
-      &copy; {{ $title }} Authors {{ $year }} | Documentation distributed under <a href="https://creativecommons.org/licenses/by/4.0">CC-BY-4.0</a>
+      &copy; {{ $title }} 作者 {{ $year }} | 在<a
+        href="https://creativecommons.org/licenses/by/4.0"
+        >CC-BY-4.0</a
+      >下文档分发
     </p>
 
     <p>
-      &copy; {{ $year }} The Linux Foundation. All rights reserved. The Linux Foundation has registered trademarks and uses trademarks. For a list of trademarks of The Linux Foundation, please see our <a href="https://www.linuxfoundation.org/trademark-usage/">Trademark Usage</a> page.
+      &copy; {{ $year }} Linux基金会。 版权所有。
+      Linux基金会有注册商标和商标的使用。
+      对于Linux基金会的商标的列表，请参阅我们的
+      <a href="https://www.linuxfoundation.org/trademark-usage/">商标使用</a>
+      页面。
     </p>
   </div>
 </section>

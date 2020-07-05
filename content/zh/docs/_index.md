@@ -1,6 +1,17 @@
 ---
-title: "Docs Home"
-description: "Everything you need to know about how the documentation is organized."
+title: "文档首页"
+description: "所有你需要知道文档的组织方式。"
 ---
 
-Translate this doc into Chinese, please!
+## 欢迎
+
+欢迎光临[helm](https://helm.sh/)文档。Helm 是 Kubernetes 包管理器，你可以在[CNCF Helm 项目旅程报告](https://www.cncf.io/cncf-helm-project-journey/)阅读详细的背景资料.
+
+## 文档是如何组织的
+
+Helm 有大量的文档资料。 它是如何组织将帮助高层次的概述你知道去哪里找一些事情:
+
+- [教程](intro) 牵着你的手，通过一系列的步骤来创建你的第一个`Helm`图。 如果你是新来的`Helm`这里开始。
+- [主题指南](topics) 讨论的重点议题和概念，在一个相当高的水平，并提供有用的背景资料和解释。
+- [社区指南](community) 讨论主题围绕着 Helm 社区。 如果您想了解更多关于 Helm 本身的开发过程，以及如何能够有助于从这里开始。
+- [操作指南](howto) 是食谱. 他们引导您参与解决关键问题和使用情况的步骤。 他们比教程更先进，更承担 Helm 如何工作的一些知识。
