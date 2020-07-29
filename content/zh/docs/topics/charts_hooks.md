@@ -1,6 +1,6 @@
 ---
-title: "图鱼钩"
-description: "Describes how to work with chart hooks."
+title: "图表钩子"
+description: "介绍了如何使用图表挂钩工作。"
 aliases: ["/docs/charts_hooks/"]
 weight: 2
 ---
@@ -18,7 +18,7 @@ Hooks work like regular templates, but they have special annotations that cause
 Helm to utilize them differently. In this section, we cover the basic usage
 pattern for hooks.
 
-## The Available Hooks
+## 可用挂钩
 
 The following hooks are defined:
 
@@ -36,7 +36,7 @@ The following hooks are defined:
 
 _Note that the `crd-install` hook has been removed in favor of the `crds/` directory in Helm 3._
 
-## Hooks and the Release Lifecycle
+## 钩子和发行生命周期
 
 Hooks allow you, the chart developer, an opportunity to perform operations at
 strategic points in a release lifecycle. For example, consider the lifecycle for
@@ -87,7 +87,7 @@ behavior, though, is not considered binding and could change in the future.) It
 is considered good practice to add a hook weight, and set it to `0` if weight is
 not important.
 
-### Hook resources are not managed with corresponding releases
+### 挂钩资源没有相应的版本管理
 
 The resources that a hook creates are currently not tracked or managed as part
 of the release. Once Helm verifies that the hook has reached its ready state,
@@ -102,7 +102,7 @@ resources, you need to either [add a custom `helm.sh/hook-delete-policy` annotat
 to the hook template file, or [set the time to live (TTL) field of a
 Job resource](https://kubernetes.io/docs/concepts/workloads/controllers/ttlafterfinished/).
 
-## Writing a Hook
+## 编写挂钩
 
 Hooks are just Kubernetes manifest files with special annotations in the
 `metadata` section. Because they are template files, you can use all of the
@@ -179,7 +179,7 @@ Hook weights can be positive or negative numbers but must be represented as
 strings. When Helm starts the execution cycle of hooks of a particular Kind it
 will sort those hooks in ascending order.
 
-### Hook deletion policies
+### 钩子删除策略
 
 It is possible to define policies that determine when to delete corresponding hook
 resources. Hook deletion policies are defined using the following annotation:

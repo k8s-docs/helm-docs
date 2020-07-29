@@ -1,6 +1,6 @@
 ---
 title: "图测试"
-description: "Describes how to run and test your charts."
+description: "描述如何运行和测试您的图表。"
 aliases: ["/docs/chart_tests/"]
 weight: 3
 ---

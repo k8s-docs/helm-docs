@@ -1,6 +1,6 @@
 ---
 title: "已过时 Kubernetes APIs"
-description: "Explains deprecated Kubernetes APIs in Helm"
+description: "解释 Helm 里弃用Kubernetes的API"
 aliases: ["docs/k8s_apis/"]
 ---
 

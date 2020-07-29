@@ -1,14 +1,13 @@
 ---
 title: "同步您的图表库"
-description: "Describes how to synchronize your local and remote chart repositories."
+description: "介绍如何同步本地和远程图表的存储库。"
 weight: 2
 aliases: ["/docs/chart_repository_sync_example/"]
 ---
 
-_Note: This example is specifically for a Google Cloud Storage (GCS) bucket
-which serves a chart repository._
+_注意: 这个例子是专门为服务于图表存储库中的谷歌云存储（GCS）桶。_
 
-## Prerequisites
+## 先决条件
 
 - Install the [gsutil](https://cloud.google.com/storage/docs/gsutil) tool. _We
   rely heavily on the gsutil rsync functionality_
@@ -17,7 +16,7 @@ which serves a chart repository._
   versioning](https://cloud.google.com/storage/docs/gsutil/addlhelp/ObjectVersioningandConcurrencyControl#top_of_page)
   on your GCS bucket in case you accidentally delete something._
 
-## Set up a local chart repository directory
+## 设置本地图表库目录
 
 Create a local directory like we did in [the chart repository
 guide]({{< ref "/docs/topics/chart_repository.md" >}}), and place your packaged charts in that directory.
@@ -29,7 +28,7 @@ $ mkdir fantastic-charts
 $ mv alpine-0.1.0.tgz fantastic-charts/
 ```
 
-## Generate an updated index.yaml
+## 产生一个更新的 index.yaml 中
 
 Use Helm to generate an updated index.yaml file by passing in the directory path
 and the url of the remote repository to the `helm repo index` command like this:
@@ -41,7 +40,7 @@ $ helm repo index fantastic-charts/ --url https://fantastic-charts.storage.googl
 This will generate an updated index.yaml file and place it in the
 `fantastic-charts/` directory.
 
-## Sync your local and remote chart repositories
+## 同步本地和远程表库
 
 Upload the contents of the directory to your GCS bucket by running
 `scripts/sync-repo.sh` and pass in the local directory name and the GCS bucket
@@ -70,7 +69,7 @@ Uploading   gs://fantastic-charts/index.yaml:                    347 B/347 B
 Congratulations your remote chart repository now matches the contents of fantastic-charts/
 ```
 
-## Updating your chart repository
+## 更新您的图表库
 
 You'll want to keep a local copy of the contents of your chart repository or use
 `gsutil rsync` to copy the contents of your remote chart repository to a local

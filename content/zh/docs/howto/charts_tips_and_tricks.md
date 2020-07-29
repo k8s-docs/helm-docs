@@ -1,6 +1,6 @@
 ---
 title: "图表开发技巧和窍门"
-description: "Covers some of the tips and tricks Helm chart developers have learned while building production-quality charts."
+description: "讲述了一些技巧和窍门 Helm 图表开发的同时，构建生产品质的图表已经明白了。"
 weight: 1
 aliases: ["/docs/charts_tips_and_tricks/"]
 ---
@@ -8,7 +8,7 @@ aliases: ["/docs/charts_tips_and_tricks/"]
 This guide covers some of the tips and tricks Helm chart developers have learned
 while building production-quality charts.
 
-## Know Your Template Functions
+## 了解你的模板函数
 
 Helm uses [Go templates](https://godoc.org/text/template) for templating your
 resource files. While Go ships several built-in functions, we have added many
@@ -40,7 +40,7 @@ missing:
 value: { { required "A valid .Values.who entry required!" .Values.who } }
 ```
 
-## Quote Strings, Don't Quote Integers
+## 引号字符串，不要引用整数
 
 When you are working with string data, you are always safer quoting the strings
 than leaving them as bare words:
@@ -67,7 +67,7 @@ env:
     value: "1234"
 ```
 
-## Using the 'include' Function
+## 使用 'include' 函数
 
 Go provides a way of including one template in another using a built-in
 `template` directive. However, the built-in function cannot be used in Go
@@ -87,7 +87,7 @@ Because YAML ascribes significance to indentation levels and whitespace, this is
 one great way to include snippets of code, but handle indentation in a relevant
 context.
 
-## Using the 'required' function
+## 使用 'required' 函数
 
 Go provides a way for setting template options to control behavior when a map is
 indexed with a key that's not present in the map. This is typically set with
@@ -111,7 +111,7 @@ For example:
 The above will render the template when `.Values.foo` is defined, but will fail to
 render and exit when `.Values.foo` is undefined.
 
-## Using the 'tpl' Function
+## 使用 'tpl' 函数
 
 The `tpl` function allows developers to evaluate strings as templates inside a template.
 This is useful to pass a template string as a value to a chart or render external configuration files.
@@ -150,7 +150,7 @@ firstName=Peter
 lastName=Parker
 ```
 
-## Creating Image Pull Secrets
+## 创建映像拉的密钥
 
 Image pull secrets are essentially a combination of _registry_, _username_, and
 _password_. You may need them in an application you are deploying, but to
@@ -192,7 +192,7 @@ data:
   .dockerconfigjson: { { template "imagePullSecret" . } }
 ```
 
-## Automatically Roll Deployments
+## 自动回滚部署
 
 Often times ConfigMaps or Secrets are injected as configuration files in
 containers or there are other external dependency changes that require rolling
@@ -235,7 +235,7 @@ NOTE: In the past we recommended using the `--recreate-pods` flag as another
 option. This flag has been marked as deprecated in Helm 3 in favor of the more
 declarative method above.
 
-## Tell Helm Not To Uninstall a Resource
+## 告诉 Helm 不卸载资源
 
 Sometimes there are resources that should not be uninstalled when Helm runs a
 `helm uninstall`. Chart developers can add an annotation to a resource to
@@ -257,7 +257,7 @@ would result in its deletion. _However_, this resource becomes orphaned. Helm wi
 manage it in any way. This can lead to problems if using `helm install --replace` on a release
 that has already been uninstalled, but has kept resources.
 
-## Using "Partials" and Template Includes
+## 运用 "Partials" 和模板包括
 
 Sometimes you want to create some reusable parts in your chart, whether they're
 blocks or template partials. And often, it's cleaner to keep these in their own
@@ -267,7 +267,7 @@ In the `templates/` directory, any file that begins with an underscore(`_`) is
 not expected to output a Kubernetes manifest file. So by convention, helper
 templates and partials are placed in a `_helpers.tpl` file.
 
-## Complex Charts with Many Dependencies
+## 复杂的图表有很多依赖
 
 Many of the charts in the [official charts
 repository](https://github.com/helm/charts) are "building blocks" for creating
@@ -280,7 +280,7 @@ parts is to create a top-level umbrella chart that exposes the global
 configurations, and then use the `charts/` subdirectory to embed each of the
 components.
 
-## YAML is a Superset of JSON
+## YAML 是 JSON 的超集
 
 According to the YAML specification, YAML is a superset of JSON. That means that
 any valid JSON structure ought to be valid in YAML.
@@ -292,14 +292,14 @@ whitespace sensitivity.
 As a best practice, templates should follow a YAML-like syntax _unless_ the JSON
 syntax substantially reduces the risk of a formatting issue.
 
-## Be Careful with Generating Random Values
+## 小心产生随机值
 
 There are functions in Helm that allow you to generate random data,
 cryptographic keys, and so on. These are fine to use. But be aware that during
 upgrades, templates are re-executed. When a template run generates data that
 differs from the last run, that will trigger an update of that resource.
 
-## Install or Upgrade a Release with One Command
+## 安装或升级使用一个命令一发布
 
 Helm provides a way to perform an install-or-upgrade as a single command. Use
 `helm upgrade` with the `--install` command. This will cause Helm to see if the

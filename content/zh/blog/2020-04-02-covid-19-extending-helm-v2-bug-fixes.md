@@ -1,5 +1,5 @@
 ---
-title: "COVID-19: Extending Helm v2 Bug Fixes"
+title: "COVID-19: 扩展 Helm V2 Bug修复"
 slug: "covid-19-extending-helm-v2-bug-fixes"
 authorname: "Matt Farina & Bridget Kromhout"
 authorlink: "https://helm.sh"

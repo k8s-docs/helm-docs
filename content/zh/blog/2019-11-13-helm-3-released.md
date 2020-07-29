@@ -1,5 +1,5 @@
 ---
-title: "Helm 3.0.0 has been released!"
+title: "Helm 3.0.0 已经发布！"
 slug: "helm-3-released"
 authorname: "Matthew Fisher"
 author: "@bacongobbler"

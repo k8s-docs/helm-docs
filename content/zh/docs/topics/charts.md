@@ -1,6 +1,6 @@
 ---
 title: "图表"
-description: "Explains the chart format, and provides basic guidance for building charts with Helm."
+description: "解释图表格式，并建立图表与头盔提供基本的指导。"
 aliases: ["docs/developing_charts/", "developing_charts"]
 weight: 1
 ---
@@ -19,7 +19,7 @@ it, you can do so with `helm pull chartrepo/chartname`.
 This document explains the chart format, and provides basic guidance for
 building charts with Helm.
 
-## The Chart File Structure
+## 图表文件结构
 
 A chart is organized as a collection of files inside of a directory. The
 directory name is the name of the chart (without versioning information). Thus,
@@ -44,7 +44,7 @@ wordpress/
 Helm reserves use of the `charts/`, `crds/`, and `templates/` directories, and
 of the listed file names. Other files will be left as they are.
 
-## The Chart.yaml File
+## Chart.yaml 文件
 
 The `Chart.yaml` file is required for a chart. It contains the following fields:
 
@@ -84,7 +84,7 @@ annotations:
 
 Other fields will be silently ignored.
 
-### Charts and Versioning
+### 图表和版本
 
 Every chart must have a version number. A version must follow the [SemVer
 2](https://semver.org/spec/v2.0.0.html) standard. Unlike Helm Classic, Kubernetes Helm uses
@@ -113,7 +113,7 @@ name. The system assumes that the version number in the chart package name
 matches the version number in the `Chart.yaml`. Failure to meet this assumption
 will cause an error.
 
-### The `apiVersion` Field
+### `apiVersion` 字段
 
 The `apiVersion` field should be `v2` for Helm charts that require at least
 Helm 3. Charts supporting previous Helm versions have an `apiVersion` set
@@ -127,7 +127,7 @@ Changes from `v1` to `v2`:
 - The `type` field, discriminating application and library charts
   (see [Chart Types](#chart-types)).
 
-### The `appVersion` Field
+### `appVersion` 字段
 
 Note that the `appVersion` field is not related to the `version` field. It is a
 way of specifying the version of the application. For example, the `drupal`
@@ -135,7 +135,7 @@ chart may have an `appVersion: 8.2.1`, indicating that the version of Drupal
 included in the chart (by default) is `8.2.1`. This field is informational, and
 has no impact on chart version calculations.
 
-### The `kubeVersion` Field
+### `kubeVersion` 字段
 
 The optional `kubeVersion` field can define semver constraints on supported
 Kubernetes versions. Helm will validate the version constraints when installing
@@ -171,7 +171,7 @@ Apart from version constrains employing operators
 For a detailed explanation of supported semver constraints see
 [Masterminds/semver](https://github.com/Masterminds/semver).
 
-### Deprecating Charts
+### 自嘲图表
 
 When managing charts in a Chart Repository, it is sometimes necessary to
 deprecate a chart. The optional `deprecated` field in `Chart.yaml` can be used
@@ -186,7 +186,7 @@ followed by the [kubernetes/charts](https://github.com/helm/charts) project is:
 2. Release the new chart version in the Chart Repository
 3. Remove the chart from the source repository (e.g. git)
 
-### Chart Types
+### 图表类型
 
 The `type` field defines the type of chart. There are two types: `application`
 and `library`. Application is the default type and it is the standard chart
@@ -201,7 +201,7 @@ by setting the type to `library`. The chart will then be rendered as a library
 chart where all utilities and functions can be leveraged. All resource objects
 of the chart will not be rendered.
 
-## Chart LICENSE, README and NOTES
+## 图 LICENSE，README 和注意事项
 
 Charts can also contain files that describe the installation, configuration,
 usage and license of a chart.
@@ -233,13 +233,13 @@ connecting to a database, or accessing a web UI. Since this file is printed to
 STDOUT when running `helm install` or `helm status`, it is recommended to keep
 the content brief and point to the README for greater detail.
 
-## Chart Dependencies
+## 图表依赖
 
 In Helm, one chart may depend on any number of other charts. These dependencies
 can be dynamically linked using the `dependencies` field in `Chart.yaml` or
 brought in to the `charts/` directory and managed manually.
 
-### Managing Dependencies with the `dependencies` field
+### 管理依赖关系 with the `dependencies` field
 
 The charts required by the current chart are defined as a list in the
 `dependencies` field.
@@ -298,7 +298,7 @@ charts/
   mysql-3.2.1.tgz
 ```
 
-#### Alias field in dependencies
+#### 在依赖别名字段
 
 In addition to the other fields above, each requirements entry may contain the
 optional field `alias`.
@@ -337,7 +337,7 @@ new-subchart-2
 The manual way of achieving this is by copy/pasting the same chart in the
 `charts/` directory multiple times with different names.
 
-#### Tags and Condition fields in dependencies
+#### 依赖标签和条件字段
 
 In addition to the other fields above, each requirements entry may contain the
 optional fields `tags` and `condition`.
@@ -395,7 +395,7 @@ Since `subchart2` is tagged with `back-end` and that tag evaluates to `true`,
 condition specified, there is no corresponding path and value in the parent's
 values so that condition has no effect.
 
-##### Using the CLI with Tags and Conditions
+##### 使用带有标签和条件 CLI
 
 The `--set` parameter can be used as usual to alter tag and condition values.
 
@@ -403,7 +403,7 @@ The `--set` parameter can be used as usual to alter tag and condition values.
 helm install --set tags.front-end=true --set subchart2.enabled=false
 ```
 
-##### Tags and Condition Resolution
+##### 标签和条件分辨率
 
 - **Conditions (when set in values) always override tags.** The first condition
   path that exists wins and subsequent ones for that chart are ignored.
@@ -413,7 +413,7 @@ helm install --set tags.front-end=true --set subchart2.enabled=false
 - The `tags:` key in values must be a top level key. Globals and nested `tags:`
   tables are not currently supported.
 
-#### Importing Child Values via dependencies
+#### 通过依赖导入子值
 
 In some cases it is desirable to allow a child chart's values to propagate to
 the parent chart and be shared as common defaults. An additional benefit of
@@ -428,7 +428,7 @@ To import values not contained in the `exports` key, use the
 [child-parent](#using-the-child-parent-format) format. Examples of both formats
 are described below.
 
-##### Using the exports format
+##### 使用导出格式
 
 If a child chart's `values.yaml` file contains an `exports` field at the root,
 its contents may be imported directly into the parent's values by specifying the
@@ -467,7 +467,7 @@ myint: 99
 Please note the parent key `data` is not contained in the parent's final values.
 If you need to specify the parent key, use the 'child-parent' format.
 
-##### Using the child-parent format
+##### 使用父子格式
 
 To access values that are not contained in the `exports` key of the child
 chart's values, you will need to specify the source key of the values to be
@@ -527,7 +527,7 @@ myimports:
 The parent's final values now contains the `myint` and `mybool` fields imported
 from subchart1.
 
-### Managing Dependencies manually via the `charts/` directory
+### 通过 `charts/` 目录手动管理依赖
 
 If more control over dependencies is desired, these dependencies can be
 expressed explicitly by copying the dependency charts into the `charts/`
@@ -559,7 +559,7 @@ Apache and MySQL by including those charts inside of its `charts/` directory.
 
 **TIP:** _To drop a dependency into your `charts/` directory, use the `helm pull` command_
 
-### Operational aspects of using dependencies
+### 使用依赖的操作方面
 
 The above sections explain how to specify chart dependencies, but how does this
 affect chart installation using `helm install` and `helm upgrade`?
@@ -601,7 +601,7 @@ The install order of Kubernetes types is given by the enumeration InstallOrder
 in kind_sorter.go (see [the Helm source
 file](https://github.com/helm/helm/blob/484d43913f97292648c867b56768775a55e4bba6/pkg/releaseutil/kind_sorter.go)).
 
-## Templates and Values
+## 模板和值
 
 Helm Chart templates are written in the [Go template
 language](https://golang.org/pkg/text/template/), with the addition of 50 or so
@@ -623,7 +623,7 @@ Values for the templates are supplied two ways:
 When a user supplies custom values, these values will override the values in the
 chart's `values.yaml` file.
 
-### Template Files
+### 模板文件
 
 Template files follow the standard conventions for writing Go templates (see
 [the text/template Go package
@@ -675,7 +675,7 @@ dictate parameters.
 To see many working charts, check out the [Kubernetes Charts
 project](https://github.com/helm/charts)
 
-### Predefined Values
+### 预定义值
 
 Values that are supplied via a `values.yaml` file (or via the `--set` flag) are
 accessible from the `.Values` object in a template. But there are other
@@ -707,7 +707,7 @@ accessible inside of the `Chart` object. Thus, `Chart.yaml` cannot be used to pa
 arbitrarily structured data into the template. The values file can be used for
 that, though.
 
-### Values files
+### 值的文件
 
 Considering the template in the previous section, a `values.yaml` file that
 supplies the necessary values would look like this:
@@ -788,7 +788,7 @@ spec:
               value: {{ default "minio" .Values.storage }}
 ```
 
-### Scope, Dependencies, and Values
+### 适用范围，相关性和值
 
 Values files can declare values for the top-level chart, as well as for any of
 the charts that are included in that chart's `charts/` directory. Or, to phrase
@@ -819,7 +819,7 @@ can access the MySQL password field as `.Values.mysql.password`. But for the
 MySQL chart, the scope of the values has been reduced and the namespace prefix
 removed, so it will see the password field simply as `.Values.password`.
 
-#### Global Values
+#### 全局值
 
 As of 2.0.0-Alpha.2, Helm supports special "global" value. Consider this
 modified version of the previous example:
@@ -872,7 +872,7 @@ way for a subchart to influence the values of the parent chart.
 Also, global variables of parent charts take precedence over the global
 variables from subcharts.
 
-### Schema Files
+### 纲要文件
 
 Sometimes, a chart maintainer might want to define a structure on their values.
 This can be done by defining a schema in the `values.schema.json` file. A schema
@@ -951,7 +951,7 @@ parent chart. This also works backwards - if a subchart has a requirement that
 is not met in the subchart's `values.yaml` file, the parent chart _must_ satisfy
 those restrictions in order to be valid.
 
-### References
+### 参考
 
 When it comes to writing templates, values, and schema files, there are several
 standard references that will help you out.
@@ -961,7 +961,7 @@ standard references that will help you out.
 - [The YAML format](https://yaml.org/spec/)
 - [JSON Schema](https://json-schema.org/)
 
-## Custom Resource Definitions (CRDs)
+## 自定义资源的定义 (CRDs)
 
 Kubernetes provides a mechanism for declaring new types of Kubernetes objects.
 Using CustomResourceDefinitions (CRDs), Kubernetes developers can declare custom
@@ -1031,7 +1031,7 @@ Helm will make sure that the `CronTab` kind has been installed and is available
 from the Kubernetes API server before it proceeds installing the things in
 `templates/`.
 
-### Limitations on CRDs
+### 限制 on CRDs
 
 Unlike most objects in Kubernetes, CRDs are installed globally. For that reason,
 Helm takes a very cautious approach in managing CRDs. CRDs are subject to the
@@ -1049,7 +1049,7 @@ following limitations:
 Operators who want to upgrade or delete CRDs are encouraged to do this manually
 and with great care.
 
-## Using Helm to Manage Charts
+## 使用 Helm 来管理图表
 
 The `helm` tool has several commands for working with charts.
 
@@ -1076,7 +1076,7 @@ $ helm lint mychart
 No issues found
 ```
 
-## Chart Repositories
+## 图表库
 
 A _chart repository_ is an HTTP server that houses one or more packaged charts.
 While `helm` can be used to manage local chart directories, when it comes to
@@ -1096,7 +1096,7 @@ However, Helm does not provide tools for uploading charts to remote repository
 servers. This is because doing so would add substantial requirements to an
 implementing server, and thus raise the barrier for setting up a repository.
 
-## Chart Starter Packs
+## 图表入口包
 
 The `helm create` command takes an optional `--starter` option that lets you
 specify a "starter chart".

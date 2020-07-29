@@ -6,7 +6,7 @@ aliases: ["/docs/architecture/"]
 weight: 8
 ---
 
-This document describes the Helm architecture at a high level.
+本文介绍了在较高的水平 Helm 架构。
 
 ## The Purpose of Helm
 

@@ -1,5 +1,5 @@
 ---
-title: "Celebrating Helm's CNCF Graduation"
+title: "庆祝 Helm 的 CNCF 毕业"
 slug: "celebrating-helms-cncf-graduation"
 authorname: "Matt Butcher"
 author: "@technosophos"
@@ -32,5 +32,3 @@ And so we stand at this milestone. We completed the last requirement for graduat
 So what changes are in store for Helm in the future? Process-wise, things will remain as they already are. We will continue our unwavering commitment to stability and compatibility from major version to major version. We have begun the very earliest investigations into what Helm 4 may have in store. And we are (as always) eager to welcome new participants into our community, from helpful users who want to share their experiences through seasoned experts who wish to contribute substantial time to the upkeep of the project. Moreover, we are excited for the [CNCF's Artifact Hub](https://devclass.com/2020/03/12/cncf-starts-new-artifact-hub/) project, which we believe will truly bring together several major movements within CNCF. We are excited to continue working with CNCF's community.
 
 We would like to continue our tradition of ending our Helm articles with a huge thank-you to the tens of thousands of community members who have, in ways small and large, contributed to the success of Helm. Here's to many more years of providing that "zero to dopamine in five minutes" experience to all Kubernetes users!
-
-

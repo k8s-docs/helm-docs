@@ -28,7 +28,7 @@ the manifests before deployment.
 
 - Helm 3.1+
 
-### Usage
+### 用法
 
 A post-renderer can be any executable that accepts rendered Kubernetes manifests
 on STDIN and returns valid Kubernetes manifests on STDOUT. It should return an
@@ -54,7 +54,7 @@ simple as `renderer1 | renderer2 | renderer3`.
 You can see an example of using `kustomize` as a post renderer
 [here](https://github.com/thomastaylor312/advanced-helm-demos/tree/master/post-render).
 
-### Caveats
+### 注意事项
 
 When using post renderers, there are several important things to keep in mind.
 The most important of these is that when using a post-renderer, all people
@@ -69,7 +69,7 @@ other arbitrary executable). Using non-trusted or non-verified renderers is NOT
 recommended as they have full access to rendered templates, which often contain
 secret data.
 
-### Custom Post Renderers
+### 自定义文章渲染器
 
 The post render step offers even more flexibility when used in the Go SDK. Any
 post renderer only needs to implement the following Go interface:
@@ -92,7 +92,7 @@ building software and tools that leverage Helm. Full documentation can be found
 at [https://pkg.go.dev/helm.sh/helm/v3](https://pkg.go.dev/helm.sh/helm/v3), but a brief overview of some of the most
 common packages and a simple example follow below.
 
-### Package overview
+### 包概述
 
 This is a list of the most commonly used packages with a simple explanation
 about each one:
@@ -111,7 +111,7 @@ about each one:
 Obviously there are many more packages besides these, so go check out the
 documentation for more information!
 
-### Simple example
+### 简单的例子
 
 This is a simple example of doing a `helm list` using the Go SDK:
 
@@ -153,7 +153,7 @@ func main() {
 
 ```
 
-## Storage backends
+## 存储后端
 
 Helm 3 changed the default release information storage to Secrets in the namespace
 of the release. Helm 2 by default stores release information as ConfigMaps in the
@@ -161,7 +161,7 @@ namespace of the Tiller instance. The subsections which follow show how to
 configure different backends. This configuration is based on the `HELM_DRIVER`
 environment variable. It can be set to one of the values: `[configmap, secret]`.
 
-### ConfigMap storage backend
+### ConfigMap 存储后端
 
 To enable the ConfigMap backend, you'll need to set the environmental variable
 `HELM_DRIVER` to `configmap`.

@@ -34,7 +34,7 @@ With these concepts in mind, we can now explain Helm like this:
 Helm installs _charts_ into Kubernetes, creating a new _release_ for each
 installation. And to find new charts, you can search Helm chart _repositories_.
 
-## 'helm search': Finding Charts
+## helm search: 查找图表
 
 Helm comes with a powerful search command. It can be used to search two different
 types of source:
@@ -85,7 +85,7 @@ brigade/kashti	0.4.0        	v0.4.0     	A Helm chart for Kubernetes
 Search is a good way to find available packages. Once you have found a package
 you want to install, you can use `helm install` to install it.
 
-## 'helm install': Installing a Package
+## helm install: 安装包
 
 To install a new package, use the `helm install` command. At its simplest, it
 takes two arguments: A release name that you pick, and the name of the chart you want to install.
@@ -197,7 +197,7 @@ To upgrade this helm chart:
 
 The above shows the current state of your release.
 
-### Customizing the Chart Before Installing
+### 自定义图表安装之前
 
 Installing the way we have here will only use the default configuration options
 for this chart. Many times, you will want to customize the chart to use your
@@ -261,7 +261,7 @@ precedence. Overrides specified with `--set` are persisted in a ConfigMap.
 Values that have been `--set` can be viewed for a given release with `helm get values <release-name>`. Values that have been `--set` can be cleared by running
 `helm upgrade` with `--reset-values` specified.
 
-#### The Format and Limitations of `--set`
+#### --set 的格式和限制
 
 The `--set` option takes zero or more name/value pairs. At its simplest, it is
 used like this: `--set name=value`. The YAML equivalent of that is:
@@ -331,7 +331,7 @@ Deeply nested data structures can be difficult to express using `--set`. Chart
 designers are encouraged to consider the `--set` usage when designing the format
 of a `values.yaml` file.
 
-### More Installation Methods
+### 更多的安装方法
 
 The `helm install` command can install from several sources:
 
@@ -340,7 +340,7 @@ The `helm install` command can install from several sources:
 - An unpacked chart directory (`helm install foo path/to/foo`)
 - A full URL (`helm install foo https://example.com/charts/foo-1.2.3.tgz`)
 
-## 'helm upgrade' and 'helm rollback': Upgrading a Release, and Recovering on Failure
+## helm upgrade 和 helm rollback: 升级版本，并恢复对失败
 
 When a new version of a chart is released, or when you want to change the
 configuration of your release, you can use the `helm upgrade` command.
@@ -391,7 +391,7 @@ rollback happens, the revision number is incremented by 1. The first revision
 number is always 1. And we can use `helm history [RELEASE]` to see revision
 numbers for a certain release.
 
-## Helpful Options for Install/Upgrade/Rollback
+## 对于安装/升级/回滚有用的选项
 
 There are several other helpful options you can specify for customizing the
 behavior of Helm during an install/upgrade/rollback. Please note that this is
@@ -412,7 +412,7 @@ not a full list of cli flags. To see a description of all flags, just run `helm 
   will cause all pods to be recreated (with the exception of pods belonging to
   deployments). (DEPRECATED in Helm 3)
 
-## 'helm uninstall': Uninstalling a Release
+## helm uninstall: 卸载发布
 
 When it is time to uninstall a release from the cluster, use the
 `helm uninstall` command:
@@ -453,7 +453,7 @@ kindred-angelf  2       Tue Sep 27 16:16:10 2016        UNINSTALLED     alpine-0
 Note that because releases are now deleted by default, it is no longer possible to
 rollback an uninstalled resource.
 
-## 'helm repo': Working with Repositories
+## helm repo: 与存储库工作
 
 Helm 3 no longer ships with a default chart repository. The `helm repo` command
 group provides commands to add, list, and remove repositories.
@@ -478,7 +478,7 @@ your Helm client is up to date by running `helm repo update`.
 
 Repositories can be removed with `helm repo remove`.
 
-## Creating Your Own Charts
+## 创建自己的图表
 
 The [Chart Development Guide]({{< ref "/docs/topics/charts.md" >}}) explains how to develop your own
 charts. But you can get started quickly by using the `helm create` command:
@@ -515,7 +515,7 @@ Note: The `stable` repository is managed on the [Kubernetes Charts GitHub
 repository](https://github.com/helm/charts). That project accepts chart source
 code, and (after audit) packages those for you.
 
-## Conclusion
+## 结论
 
 This chapter has covered the basic usage patterns of the `helm` client,
 including searching, installation, upgrading, and uninstalling. It has also

@@ -1,6 +1,6 @@
 ---
 title: "Kubernetes 分配指南"
-description: "Captures information about using Helm in specific Kubernetes environments."
+description: "关于具体Kubernetes环境中使用Helm捕获信息。"
 aliases: ["/docs/kubernetes_distros/"]
 weight: 10
 ---

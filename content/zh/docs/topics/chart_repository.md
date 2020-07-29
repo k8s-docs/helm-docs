@@ -1,6 +1,6 @@
 ---
 title: "图表库指南"
-description: "How to create and work with Helm chart repositories."
+description: "如何创建和Helm图表库工作。"
 aliases: ["/docs/chart_repository/"]
 weight: 6
 ---
